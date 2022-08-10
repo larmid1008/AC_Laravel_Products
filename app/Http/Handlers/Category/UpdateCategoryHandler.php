@@ -15,6 +15,8 @@ class UpdateCategoryHandler extends BaseHandler
     protected function handleCommand($command): Category
     {
         $category = Category::findOrFail($command->id);
+
+        // TODO check if category name is unique
         //$this->isUnique($command);
 
         $category->updateOrFail([

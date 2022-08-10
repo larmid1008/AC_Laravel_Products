@@ -8,8 +8,8 @@ class UpdateProductCommand extends DataTransferObject
 {
     public int $id;
     public string $name;
-    public string $description;
+    public ?string $description;
     public float $price;
     public bool $published;
-    public array $category_ids;
+    public array $categoriesId = [];
 }

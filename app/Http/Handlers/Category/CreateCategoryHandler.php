@@ -14,11 +14,12 @@ class CreateCategoryHandler extends BaseHandler
      */
     protected function handleCommand($command): Category
     {
+        // TODO check if category name is unique
+        //$this->isUnique($command);
+
         return Category::create([
             "name" => $command->name,
             "description" => $command->description,
-            "published" => $command->published,
-            "price" => $command->price,
         ]);
     }
 }
