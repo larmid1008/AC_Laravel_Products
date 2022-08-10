@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('published');
-            $table->decimal('price');
+            $table->boolean('published')->default(false);
+            $table->decimal('price')->default(0.0);
             $table->string('name');
             $table->longText('description')->nullable();
             $table->softDeletes();
