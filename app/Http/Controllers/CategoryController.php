@@ -7,24 +7,23 @@ use App\Http\Dto\Category\UpdateCategoryCommand;
 use App\Http\Handler\Category\UpdateCategoryHandler;
 use App\Http\Handlers\Category\CreateCategoryHandler;
 use App\Http\Requests\Category\IndexCategoryRequest;
-use CategoryIndexResource;
+use App\Http\Resources\Category\CategoryIndexResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Category;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use Illuminate\Http\Response;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class CategoryController extends Controller
 {
     public function index(IndexCategoryRequest $request): ResourceCollection
     {
-        return JsonResource::collection(
-            Category::orderBy('id')
-                ->limit(config('const.ITEM_LIMIT'))
-                ->offset($request->offset)
-                ->get()
-        );
+        $categories = QueryBuilder::for(Category::class)
+            ->paginate(perPage: $request->perPage(), page: $request->page());
+
+        return CategoryIndexResource::collection($categories);
     }
 
     public function show(Category $category): JsonResource
@@ -55,8 +54,6 @@ class CategoryController extends Controller
             id: $id,
             name: $request->get('name'),
             description: $request->get('description'),
-            price: $request->get('price'),
-            published: $request->get('published'),
         );
 
         $handler->handle($command);
