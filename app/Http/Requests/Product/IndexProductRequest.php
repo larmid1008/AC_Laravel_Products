@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Product;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\PaginationRequest;
 
-class IndexProductRequest extends FormRequest
+class IndexProductRequest extends PaginationRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -13,11 +13,6 @@ class IndexProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'string|max:256',
-            'description' => 'string|max:512',
-            'price' => 'number',
-            'published' => 'boolean',
-        ];
+        return [];
     }
 }
