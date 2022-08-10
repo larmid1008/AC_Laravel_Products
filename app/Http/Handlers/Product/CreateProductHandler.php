@@ -18,6 +18,7 @@ class CreateProductHandler extends BaseHandler
     {
         $categoriesId = Category::whereIn('id', $command->categoriesId)->pluck('id');
         $wrongIds = array_diff($command->categoriesId, $categoriesId->toArray());
+
         if (count($wrongIds)) {
             throw new NotFoundHttpException(
                 sprintf(
@@ -34,6 +35,8 @@ class CreateProductHandler extends BaseHandler
             "price" => $command->price,
         ]);
 
-        return $product->categories()->sync($command->categoriesId);
+        $product->categories()->sync($command->categoriesId);
+
+        return $product->load('categories');
     }
 }
