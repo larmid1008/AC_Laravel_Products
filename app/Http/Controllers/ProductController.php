@@ -89,7 +89,7 @@ class ProductController extends Controller
         $handler->handle($command);
         $product = Product::findOrFail($id);
 
-        return ProductIndexResource::make($product)->response()->setStatusCode(Response::HTTP_OK);
+        return ProductIndexResource::make($product);
     }
 
     public function destroy(int $id, Request $request, Product $product): Response

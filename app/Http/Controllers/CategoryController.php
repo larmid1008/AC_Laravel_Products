@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Dto\Category\CreateCategoryCommand;
 use App\Http\Dto\Category\UpdateCategoryCommand;
-use App\Http\Handler\Category\UpdateCategoryHandler;
+use App\Http\Handlers\Category\UpdateCategoryHandler;
 use App\Http\Handlers\Category\CreateCategoryHandler;
 use App\Http\Requests\Category\IndexCategoryRequest;
 use App\Http\Resources\Category\CategoryIndexResource;

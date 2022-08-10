@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Handler\Category;
+namespace App\Http\Handlers\Category;
 
 use App\Http\Dto\Category\CreateCategoryCommand;
 use App\Models\Category;
