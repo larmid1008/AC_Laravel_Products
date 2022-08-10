@@ -17,7 +17,7 @@ class CreateCategoryHandler extends BaseHandler
         return Category::create([
             "name" => $command->name,
             "description" => $command->description,
-            "enable" => $command->enable,
+            "published" => $command->published,
             "price" => $command->price,
         ]);
     }

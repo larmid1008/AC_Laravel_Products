@@ -17,7 +17,7 @@ class CreateProductHandler extends BaseHandler
         return Product::create([
             "name" => $command->name,
             "description" => $command->description,
-            "enable" => $command->enable,
+            "published" => $command->published,
             "price" => $command->price,
         ]);
     }

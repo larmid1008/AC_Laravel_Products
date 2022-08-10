@@ -20,7 +20,7 @@ class UpdateProductHandler extends BaseHandler
         $business->updateOrFail([
             "name" => $command->name,
             "description" => $command->description,
-            "enable" => $command->enable,
+            "published" => $command->published,
             "price" => $command->price,
         ]);
         return $business;

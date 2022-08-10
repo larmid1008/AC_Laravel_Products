@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'name' => Str::random(10),
             'description' => Str::random(20),
             'price' =>random_int(10, 300),
-            'enable' => true,
+            'published' => true,
         ];
     }
 }

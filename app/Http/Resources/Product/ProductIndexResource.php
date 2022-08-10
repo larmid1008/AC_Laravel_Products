@@ -17,7 +17,7 @@ class ProductIndexResource extends JsonResource
             "name" => $this->name,
             "description" => $this->description,
             "price" => $this->price,
-            "enable" => $this->enable,
+            "published" => $this->published,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
         ];

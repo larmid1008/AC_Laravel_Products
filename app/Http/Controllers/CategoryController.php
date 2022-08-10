@@ -56,7 +56,7 @@ class CategoryController extends Controller
             name: $request->get('name'),
             description: $request->get('description'),
             price: $request->get('price'),
-            enable: $request->get('enable'),
+            published: $request->get('published'),
         );
 
         $handler->handle($command);

@@ -17,7 +17,7 @@ class IndexProductRequest extends FormRequest
             'name' => 'string|max:256',
             'description' => 'string|max:512',
             'price' => 'number',
-            'enable' => 'boolean',
+            'published' => 'boolean',
         ];
     }
 }

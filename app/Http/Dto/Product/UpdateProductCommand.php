@@ -10,6 +10,6 @@ class UpdateProductCommand extends DataTransferObject
     public string $name;
     public string $description;
     public float $price;
-    public bool $enable;
+    public bool $published;
     public array $category_ids;
 }
